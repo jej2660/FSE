@@ -36,8 +36,8 @@
 			function draw3(){
 				var time = Unix_timestampConv() - 43200;
 				var v;
-				var sell = 50;
-				var money = 50000000000;
+				var sell = 0;
+				var money = 100000000;
 				var chartdata = [];
 				$.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=' + time + '&end=9999999999&period=300', function (data) {
 					$.each(data, function(i, item){
@@ -48,6 +48,7 @@
 						document.getElementById('sellcost').value = v;
 						document.getElementById('buy_possible').value = parseInt(money/v);
 						document.getElementById('sell_possible').value = sell;
+						document.getElementById('money').value = money;
 					});
 					timerID = setTimeout("draw3()", 60000);
 				}).done(function(){
@@ -90,14 +91,14 @@
 			<div class="test" style="margin-bottom:20px;">
 				<div>
 					매수 가능: <input type="text" id="buy_possible">
-					buy price(KRW): <input type="text" id="buycost" size="20">
+					buy price(KRW): <input type="text" id="buycost" size="20" disabled>
 					<button type="button" class="buy" onclick="location.href='index.html'">매수</button>
 				</div>
 			</div>
 			<div class="test" style="margin-bottom:20px;">
 				<div>
 					매도 가능: <input type="text" id="sell_possible">
-					sell price(KRW): <input type="text" id="sellcost" size="20">
+					sell price(KRW): <input type="text" id="sellcost" size="20" disabled>
 					<button type="submit" class="sell" onclick="location.href='index.html'">매도</button>
 				</div>
 			</div>

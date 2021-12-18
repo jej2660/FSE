@@ -38,11 +38,11 @@ ul { list-style: none; }
     padding: 5px 20px;
     position: absolute;
     top: 50%;
-    left: 42%;
+    left: 45%;
     width: 700px;
     height: 250px;
     margin-left: -220px;
-    margin-top: -30px;
+    margin-top: -20px;
 
     display: flex;
     flex-direction: column;
