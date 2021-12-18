@@ -18,6 +18,7 @@
                         <li><a href="">자산정보</a></li>
                     </div>
                     <div class="join">
+                        <li th:if="${uid}"><p th:text="${uid}"></p></li>
                         <li><a href="login">로그인</a></li>
                         <li><a href="signup">회원가입</a></li>
                     </div>

@@ -15,7 +15,7 @@ public class DbDAO {
         }
         catch(Exception e) {
             conn = null;
-            System.out.println("Error");
+            System.out.println("Connection Error");
         }
     }
     public Connection getConnection() {

@@ -16,10 +16,12 @@ public class UserDAO {
             PreparedStatement pstmt = dbdao.getConnection().prepareStatement(sql);
             pstmt.setString(1,uid);
             rs = pstmt.executeQuery();
-            user.setId(rs.getInt("id"));
-            user.setUid(rs.getString("uid"));
-            user.setKrw(rs.getDouble("krw"));
-            user.setBtc(rs.getDouble("btc"));
+            while(rs.next()) {
+                user.setId(rs.getInt("id"));
+                user.setUid(rs.getString("uid"));
+                user.setKrw(rs.getDouble("krw"));
+                user.setBtc(rs.getDouble("btc"));
+            }
             return user;
         } catch (SQLException e){
             System.out.println("SQL Error");
@@ -27,7 +29,8 @@ public class UserDAO {
         return null;
     }
     public String loginCheck(String uid, String upwd) {
-        String sql = "SELECT * from usertable where id=? and password=?";
+        String sql = "SELECT * from usertable where uid=? and password=?";
+        String userid ="";
         DbDAO dbdao = new DbDAO();
         ResultSet rs;
         try {
@@ -35,11 +38,15 @@ public class UserDAO {
             pstmt.setString(1, uid);
             pstmt.setString(2, upwd);
             rs = pstmt.executeQuery();
-            return rs.getString("uid");
+
+            while(rs.next()){
+                userid = rs.getString("uid");
+            }
+            return userid;
         } catch (SQLException e) {
             System.out.println("Error");
         }
-        return "";
+        return null;
     }
     public boolean registUser(User user){
         String sql = "INSERT into usertable values(null,?,?,1000000,0)";
