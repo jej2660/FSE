@@ -1,4 +1,5 @@
 package com.example.fse.controller;
+import com.example.fse.repo.User;
 import com.example.fse.repo.UserDAO;
 import org.springframework.ui.Model;
 import com.example.fse.config.DbDAO;
@@ -16,7 +17,7 @@ public class MainController {
     @RequestMapping(value="/")
     public String goMain(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
-        String userid = session.getAttribute("uid").toString();
+        String userid = (String)session.getAttribute("uid");
         model.addAttribute("uid",userid);
         return "index";
     }
@@ -39,8 +40,14 @@ public class MainController {
         return "signup";
     }
     @RequestMapping(value="/signup",method=RequestMethod.POST)
-    public String signupOperation(){
-        return "signup";
+    public String signupOperation(@RequestParam("username") String uid, @RequestParam("pwd") String pwd){
+        UserDAO userdao = new UserDAO();
+        User user = new User();
+        user.setUid(uid);
+        user.setPassword(pwd);
+        userdao.registUser(user);
+
+        return "index";
     }
 
     @RequestMapping(value="HI",method= RequestMethod.GET)
