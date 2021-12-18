@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TEVEST: 로그인</title>
-        <link rel="stylesheet" href="./styles.css">
-        <script src="./login.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div class="upperMain">
-            <div class="title" style="float: left;">
-                <a href="index.html"><img class="icon" src="./images/icon.jpg" alt="TEVEST logo"></a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEVEST: 로그인</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/login.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="upperMain">
+    <div class="title" style="float: left;">
+        <a href="index"><img class="icon" src="/img/icon.jpg" alt="TEVEST logo"></a>
+    </div>
+    <nav class="sidebar">
+        <ul>
+            <div class="navigation">
+                <li><a href="">간편구매</a></li>
+                <li><a href="">거래소</a></li>
+                <li><a href="">랭킹</a></li>
+                <li><a href="">자산정보</a></li>
             </div>
-            <nav class="sidebar">
-                <ul>
-                    <div class="navigation">
-                        <li><a href="">간편구매</a></li>
-                        <li><a href="">거래소</a></li>
-                        <li><a href="">랭킹</a></li>
-                        <li><a href="">자산정보</a></li>
-                    </div>
-                    <div class="join">
-                        <li><a href="login.html">로그인</a></li>
-                        <li><a href="signup.html">회원가입</a></li>
-                    </div>
-                </ul>
-            </nav>
-        </div>
-        <div class="login_container">
-            <div style="padding: 20px;"></div>
-            <div class="login_form">
-                <form method="post" action="./login.html" method="post">
-                    <div class="form_title">
-                        <p class="login_form_title">LOGIN</p>
-                    </div>
-                    <div class="form_elements">
-                        <div class="elements_id">
-                            user ID
-                            <div class="login_id">
-                                <input id="login" type="" class="id" placeholder="아이디">
-                            </div>
-                            <div class="form_elert">
-                                <div id="alert_username" class="form_text_alert"></div>
-                            </div>
-                        </div>
-                        <div class="elements_pw">
-                            password
-                            <div class="login_pw">
-                                <input id="login" type="text" class="pw" placeholder="패스워드">
-                            </div>
-                            <div class="form_elert">
-                                <div id="alert_password" class="form_text_alert"></div>
-                            </div>
-                        </div>
-                        <br>
-                        <div >
-                            <button type="submit" class="button" onclick="login()">JOIN!</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="join">
+                <li><a href="login.html">로그인</a></li>
+                <li><a href="signup.html">회원가입</a></li>
             </div>
-            <br>
-            <div class="move_to_signup">
-                <a href="/signup.html" style="font-size: small;">회원이 아니신가요?</a>
+        </ul>
+    </nav>
+</div>
+<div class="login_container">
+    <div style="padding: 20px"></div>
+    <div class="login_form">
+        <form action="/login" method="post">
+            <div class="form_title">
+                <p class="login_form_title">LOGIN</p>
             </div>
-        </div>
-    </body>
+            <div class="form_elements">
+                <div class="elements_id">
+                    user ID
+                    <div class="login_id">
+                        <input id="login" type="" class="id" placeholder="아이디">
+                    </div>
+                    <div class="form_elert">
+                        <div id="alert_username" class="form_text_alert"></div>
+                    </div>
+                </div>
+
+                <div class="elements_pw">
+                    password
+                    <div class="login_pw">
+                        <input id="login" type="text" class="pw" placeholder="패스워드">
+                    </div>
+                    <div class="form_elert">
+                        <div id="alert_password" class="form_text_alert"></div>
+                    </div>
+                </div>
+                <br>
+                <div >
+                    <button type="submit" class="button" onclick="login()">JOIN!</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="move_to_signup">
+        <a href="/signup" style="font-size: small;">회원이 아니신가요?</a>
+    </div>
+</div>
+</body>
 </html>

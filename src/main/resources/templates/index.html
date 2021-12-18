@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TEVEST: 가상 투자 플랫폼</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body>
         <div class="upperMain">
             <div class="title" style="float: left;">
-                <a href="index.html"><img class="icon" src="./images/icon.jpg" alt="TEVEST logo"></a>
+                <a href="index.html"><img class="icon" src="/img/icon.jpg" alt="TEVEST logo"></a>
             </div>
             <nav class="sidebar">
                 <ul>
@@ -18,8 +18,8 @@
                         <li><a href="">자산정보</a></li>
                     </div>
                     <div class="join">
-                        <li><a href="login.html">로그인</a></li>
-                        <li><a href="signup.html">회원가입</a></li>
+                        <li><a href="login">로그인</a></li>
+                        <li><a href="signup">회원가입</a></li>
                     </div>
                 </ul>
             </nav>
@@ -27,7 +27,7 @@
         <div class="main_container">
             <div class="main_left">
                 <div class="box_left">
-                    <div class="user_img"><img class="user_avatar" src="./images/avatar.jpg"></div>
+                    <div class="user_img"><img class="user_avatar" src="/img/avatar.jpg"></div>
                     <div class="user_info"></div>
                 </div>
                 <div class="gapbox"></div>
