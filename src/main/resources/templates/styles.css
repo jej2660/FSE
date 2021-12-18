@@ -7,7 +7,9 @@ ul { list-style: none; }
     --button-hover-bg-color: #025ce2;
 }
 
-.test {position: relative;}
+.test {
+    position: relative;
+}
 
 .test label { 
     position: absolute; 
@@ -19,7 +21,7 @@ ul { list-style: none; }
 } 
 
 .test input[type="text"] { 
-    width: 20%; /* 원하는 너비 설정 */ 
+    width: 15%; /* 원하는 너비 설정 */ 
     height: auto; /* 높이값 초기화 */ 
     line-height : normal; /* line-height 초기화 */ 
     padding: .8em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */ 
@@ -30,6 +32,22 @@ ul { list-style: none; }
     -webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */ 
     -moz-appearance: none; 
     appearance: none; 
+}
+
+#hello{
+    padding: 5px 20px;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    width: 700px;
+    height: 250px;
+    margin-left: -220px;
+    margin-top: -30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
