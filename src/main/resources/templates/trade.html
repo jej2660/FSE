@@ -3,22 +3,23 @@
     <head>
         <title>TEVEST: 가상 투자 플랫폼</title>
         <link rel="stylesheet" href="styles.css">
+
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script src="https://code.highcharts.com/stock/highstock.js"></script>
 		<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-    </head>
-    <body>
-        <div class="upperMain">
+	</head>
+	<body>
+		<div class="upperMain">
             <div class="title" style="float: left;">
-                <a href="main.html"><img class="icon" src="./icon.jpg" alt="TEVEST logo"></a>
+                <a href="index.html"><img class="icon" src="./icon.jpg" alt="TEVEST logo"></a>
             </div>
             <nav class="sidebar">
                 <ul>
                     <div class="navigation">
-                        <li><a href="">간편구매</a></li>
+                        <li><a href="index.html">간편구매</a></li>
                         <li><a href="trade.html">거래소</a></li>
-                        <li><a href="">랭킹</a></li>
-                        <li><a href="">자산정보</a></li>
+                        <li><a href="index.html">랭킹</a></li>
+                        <li><a href="index.html">자산정보</a></li>
                     </div>
                     <div class="join" >
                         <li><a href="login.html">로그인</a></li>
@@ -34,16 +35,25 @@
 			}
 			function draw3(){
 				var time = Unix_timestampConv() - 43200;
+				var v;
+				var sell = 50;
+				var money = 50000000000;
 				var chartdata = [];
-				$.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=BTC_XMR&start=' + time + '&end=9999999999&period=300', function (data) {
+				$.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=' + time + '&end=9999999999&period=300', function (data) {
 					$.each(data, function(i, item){
 						chartdata.push([item.date*1000, item.open, item.high, item.low, item.close]);
+						v = (item.open * 1187.83).toFixed(2);
+						document.getElementById('cost').value = v;
+						document.getElementById('buycost').value = v;
+						document.getElementById('sellcost').value = v;
+						document.getElementById('buy_possible').value = parseInt(money/v);
+						document.getElementById('sell_possible').value = sell;
 					});
 					timerID = setTimeout("draw3()", 60000);
 				}).done(function(){
 					Highcharts.stockChart('container',{
 						title: {
-							text: 'ETH/BTC'
+							text: 'BTC/USDT'
 						},
 						rangeSelector: {
 							buttons: [
@@ -60,7 +70,7 @@
 							}
 						},
 						series: [{
-							name: 'ETH/BTC',
+							name: 'BTC/USDT',
 							type: 'candlestick',
 							data: chartdata,
 							tooltip: {
@@ -72,5 +82,23 @@
 			}
 			draw3();
 		</script>
+		<div class="test">
+			가격(KRW): <input type="text" id="cost" size="20" disabled>
+			보유금액(KRW): <input type="text" id="money" disabled>
+		</div>
+		<div class="test">
+			<div>
+				매수 가능: <input type="text" id="buy_possible">
+				buy price(KRW): <input type="text" id="buycost" size="20">
+				<button type="button" class="buy" onclick="location.href='index.html'">매수</button>
+			</div>
+		</div>
+		<div class="test">
+			<div>
+				매도 가능: <input type="text" id="sell_possible">
+				sell price(KRW): <input type="text" id="sellcost" size="20">
+				<button type="submit" class="sell" onclick="location.href='index.html'">매도</button>
+			</div>
+		</div>
 	</body>
 </html>
