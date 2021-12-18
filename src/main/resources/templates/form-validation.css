@@ -1,0 +1,78 @@
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: white;
+}
+
+.container {
+  max-width: 600px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #FFBA1F;
+    border-color: #FFBA1F;
+}
+
+/* 상단바 */
+a { 
+    text-decoration-line: none; 
+    color: black;
+}
+ul { list-style: none; }
+
+.upper_main {
+    position: relative;
+    margin: 20px;
+    padding: 25px;
+    line-height: 60px;
+}
+
+.title {
+    margin: 0;
+    padding: 5px;
+    width: 120px;
+    height: 60px;
+}
+
+.icon {
+    width: 180px;
+    object-fit: cover;
+    line-height: 60px;
+}
+
+.sidebar ul a { padding: 0 10px; }
+a:visited { color: black; }
+a:active, a:hover { color: #FFBA1F; }
+
+.navigation {
+    position: relative;
+    left: 100px;
+    width: 500px;
+    height: 60px; 
+}
+.navigation li {
+    float: left;
+    width: 20%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.join {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    padding-right: 30px;
+    width: 200px;
+    height: 60px;
+}
+.join li {
+    float: left;
+    width: 50%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-weight: 600;
+}

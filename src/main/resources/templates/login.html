@@ -8,9 +8,9 @@
         <script src="./login.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="upper_main">
+        <div class="upperMain">
             <div class="title" style="float: left;">
-                <a href="index.html"><img class="icon" src="./icon.jpg" alt="TEVEST logo"></a>
+                <a href="index.html"><img class="icon" src="./images/icon.jpg" alt="TEVEST logo"></a>
             </div>
             <nav class="sidebar">
                 <ul>
@@ -27,7 +27,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="container">
+        <div class="login_container">
             <div style="padding: 20px;"></div>
             <div class="login_form">
                 <form method="post" action="./login.html" method="post">
@@ -38,7 +38,7 @@
                         <div class="elements_id">
                             user ID
                             <div class="login_id">
-                                <input type="" class="id" placeholder="아이디">
+                                <input id="login" type="" class="id" placeholder="아이디">
                             </div>
                             <div class="form_elert">
                                 <div id="alert_username" class="form_text_alert"></div>
@@ -47,18 +47,22 @@
                         <div class="elements_pw">
                             password
                             <div class="login_pw">
-                                <input type="text" class="pw" placeholder="패스워드">
+                                <input id="login" type="text" class="pw" placeholder="패스워드">
                             </div>
                             <div class="form_elert">
                                 <div id="alert_password" class="form_text_alert"></div>
                             </div>
                         </div>
                         <br>
-                        <div class="button">
-                            <button type="submit" onclick="login()">JOIN!</button>
+                        <div >
+                            <button type="submit" class="button" onclick="login()">JOIN!</button>
                         </div>
                     </div>
                 </form>
+            </div>
+            <br>
+            <div class="move_to_signup">
+                <a href="/signup.html" style="font-size: small;">회원이 아니신가요?</a>
             </div>
         </div>
     </body>
