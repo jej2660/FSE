@@ -61,11 +61,72 @@ a:active, a:hover { color: #FFBA1F; }
     font-weight: 600;
 }
 
+/* main 내 주요 내용 */
+.main_container {
+    position: relative;
+    top: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 35% 60%;
+    gap: 5%;
+}
+
+.main_left {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+.main_left > div:first-child {
+    width: 80%;
+    flex: 4;
+}
+.main_left > div:last-child {
+    width: 80%;
+    flex: 5;
+}
+.gapbox { height: 10px; }
+.box_left {
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #FFBA1F;
+}
+
+.user_avatar {
+    position: relative;
+    top: 25px; 
+    left: 10px;
+
+    width: 150px;
+    object-fit: cover;
+}
+
+.message_welcome {
+    position: absolute;
+    top: 280px;
+    padding-left: 20px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+.message_ranking {
+    position: relative;
+    top: 20px;
+    padding-left: 20px;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+/* login.html */
 .login_form {
     width: 400px;
     height: 350px;
     margin: auto;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0px 0px 15px lightgray;
     text-align: center;
 
@@ -77,7 +138,6 @@ a:active, a:hover { color: #FFBA1F; }
 }
 
 .form_elements {
-
     width: 200px;
     height: 150px;
     margin: auto;
@@ -96,3 +156,4 @@ a:active, a:hover { color: #FFBA1F; }
     font-size: 17px;
     font-weight: 500;
 }
+
