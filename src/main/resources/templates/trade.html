@@ -38,7 +38,7 @@
 			function draw3(){
 				var time = Unix_timestampConv() - 43200;
 				var v;
-				var sell = 0;
+				var sell = [[${btc}]];
 				var money = [[${krw}]];
 				var chartdata = [];
 				$.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=' + time + '&end=9999999999&period=300', function (data) {
@@ -92,9 +92,11 @@
 			</div>
 			<div class="test" style="margin-bottom:20px;">
 				<div>
+					<form>
 					매수 가능: <input type="text" id="buy_possible">
 					buy price(KRW): <input type="text" id="buycost" size="20" disabled>
 					<button type="button" class="buy" onclick="location.href='index.html'">매수</button>
+
 				</div>
 			</div>
 			<div class="test" style="margin-bottom:20px;">
