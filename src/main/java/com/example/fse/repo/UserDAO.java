@@ -90,6 +90,21 @@ public class UserDAO {
         }
         return false;
     }
+    public boolean changeUserInfo(User user,double krw, double btc){
+        String sql = "update usertable set btc=?,krw=? where uid=?";
+        DbDAO dbdao = new DbDAO();
+        try{
+            PreparedStatement pstmt = dbdao.getConnection().prepareStatement(sql);
+            pstmt.setDouble(1, btc);
+            pstmt.setDouble(2, krw);
+            pstmt.setString(3, user.getUid());
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e){
+            System.out.println("sql Error");
+        }
+        return false;
+    }
     public boolean coinBid(User user, double count, double price){
         double totalprice = count * price;
         if( changeBtc(user, count) && changeKrw(user, -totalprice) ) { return true;}
