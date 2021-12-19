@@ -50,6 +50,20 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping(value="/trade", method=RequestMethod.GET)
+    public String trade(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+        UserDAO userdao = new UserDAO();
+        String userid = (String)session.getAttribute("uid");
+        model.addAttribute("uid",userid);
+        if(userid != null){
+            User user = userdao.getUser(userid);
+            model.addAttribute("krw", user.getKrw());
+            model.addAttribute("btc", user.getBtc());
+            return "trade";
+        }
+        return "index";
+    }
     @RequestMapping(value="HI",method= RequestMethod.GET)
     public String Hello(@RequestParam("name") String name, Model model){
         model.addAttribute("name",name);

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
+		<meta CONTENT="no-cache">
         <title>TEVEST: 가상 투자 플랫폼</title>
         <link rel="stylesheet" href="/css/styles.css">
 
@@ -11,7 +12,7 @@
 	<body>
 		<div class="upperMain">
             <div class="title" style="float: left;">
-				<a href="index.html"><img class="icon" src="/img/icon.jpg" alt="TEVEST logo"></a>
+				<a href="index"><img class="icon" src="/img/icon.jpg" alt="TEVEST logo"></a>
             </div>
             <nav class="sidebar">
                 <ul>
@@ -22,8 +23,9 @@
                         <li><a href="index.html">자산정보</a></li>
                     </div>
                     <div class="join" >
-                        <li><a href="login.html">로그인</a></li>
-                        <li><a href="signup.html">회원가입</a></li>
+						<li th:if="${uid != null}"><p th:text="${uid}"></p></li>
+						<li th:if="${uid == null}"><a href="login">로그인</a></li>
+						<li th:if="${uid == null}"><a href="signup">회원가입</a></li>
                     </div>
                 </ul>
             </nav>
@@ -37,7 +39,7 @@
 				var time = Unix_timestampConv() - 43200;
 				var v;
 				var sell = 0;
-				var money = 100000000;
+				var money = [[${krw}]];
 				var chartdata = [];
 				$.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=' + time + '&end=9999999999&period=300', function (data) {
 					$.each(data, function(i, item){

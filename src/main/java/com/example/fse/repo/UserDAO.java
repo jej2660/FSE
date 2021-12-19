@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class UserDAO {
     public User getUser(String uid){
-        String sql = "SELECT * from usertable where id=?";
+        String sql = "SELECT * from usertable where uid=?";
         DbDAO dbdao = new DbDAO();
         ResultSet rs;
         User user = new User();
