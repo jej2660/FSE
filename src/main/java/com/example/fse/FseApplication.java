@@ -12,6 +12,12 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @SpringBootApplication
+/**
+ * Spring Main class
+ *
+ * @author live2skull
+ * @since 1.0
+ */
 public class FseApplication {
     public static void main(String[] args) {
         SpringApplication.run(FseApplication.class, args);
