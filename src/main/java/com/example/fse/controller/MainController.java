@@ -1,6 +1,7 @@
 package com.example.fse.controller;
 import com.example.fse.repo.User;
 import com.example.fse.repo.UserDAO;
+import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.ui.Model;
 import com.example.fse.config.DbDAO;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,6 +59,29 @@ public class MainController {
         model.addAttribute("uid",userid);
         if(userid != null){
             User user = userdao.getUser(userid);
+            model.addAttribute("krw", user.getKrw());
+            model.addAttribute("btc", user.getBtc());
+            return "trade";
+        }
+        return "index";
+    }
+    @RequestMapping(value="/trade", method=RequestMethod.POST)
+    public String trade(HttpServletRequest request, @RequestParam("count") Double count, @RequestParam("price") Double price,
+                        @RequestParam("mod") String mod, Model model){
+        HttpSession session = request.getSession();
+        String userid = (String)session.getAttribute("uid");
+        DbDAO dbdao = new DbDAO();
+        UserDAO userdao = new UserDAO();
+        User user = userdao.getUser(userid);
+
+        if(mod.equals("buy")){
+            userdao.coinBid(user,count,price);
+        }
+        else if(mod.equals("sell")){
+            userdao.coinSell(user,count,price);
+        }
+        model.addAttribute("uid",userid);
+        if(userid != null){
             model.addAttribute("krw", user.getKrw());
             model.addAttribute("btc", user.getBtc());
             return "trade";

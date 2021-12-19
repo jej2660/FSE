@@ -92,19 +92,21 @@
 			</div>
 			<div class="test" style="margin-bottom:20px;">
 				<div>
-					<form action = "" name = "selling" method="post">
-						매수 가능: <input type="text" id="buy_possible">
-						buy price(KRW): <input type="text" id="buycost" size="20" disabled>
-						<input type="submit" class="buy" value="매수"></input>
+					<form action = "/trade" method="post">
+						매수 가능: <input type="text" id="buy_possible" name="count">
+						buy price(KRW): <input type="text" id="buycost" name="price" size="20">
+						<input type="hidden" name="mod" value="buy">
+						<input type="submit" class="buy" value="매수">
 					</form>
 				</div>
 			</div>
 			<div class="test" style="margin-bottom:20px;">
 				<div>
-					<form action = "" name = "selling" method="post">
-						매도 가능: <input type="text" id="sell_possible">
-						sell price(KRW): <input type="text" id="sellcost" size="20" disabled>
-						<input type="submit" class="sell" value="매도"></input>
+					<form action = "/trade" method="post">
+						매도 가능: <input type="text" id="sell_possible" name="count">
+						sell price(KRW): <input type="text" id="sellcost" name="price" size="20">
+						<input type="hidden"  name="mod" value="sell">
+						<input type="submit" class="sell" value="매도">
 					</form>
 				</div>
 			</div>

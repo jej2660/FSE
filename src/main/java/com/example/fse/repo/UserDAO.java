@@ -63,12 +63,12 @@ public class UserDAO {
         return false;
     }
     public boolean changeKrw(User user, double value){
-        String sql = "update usertable set uid=? where krw=?";
+        String sql = "update usertable set krw=? where uid=?";
         DbDAO dbdao = new DbDAO();
         try{
             PreparedStatement pstmt = dbdao.getConnection().prepareStatement(sql);
-            pstmt.setString(1, user.getUid());
-            pstmt.setDouble(2, user.getKrw() + value);
+            pstmt.setString(2, user.getUid());
+            pstmt.setDouble(1, user.getKrw() + value);
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e){
@@ -77,12 +77,12 @@ public class UserDAO {
         return false;
     }
     public boolean changeBtc(User user, double value){
-        String sql = "update usertable set uid=? where btc=?";
+        String sql = "update usertable set btc=? where uid=?";
         DbDAO dbdao = new DbDAO();
         try{
             PreparedStatement pstmt = dbdao.getConnection().prepareStatement(sql);
-            pstmt.setString(1, user.getUid());
-            pstmt.setDouble(2, user.getBtc() + value);
+            pstmt.setString(2, user.getUid());
+            pstmt.setDouble(1, user.getBtc() + value);
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e){
