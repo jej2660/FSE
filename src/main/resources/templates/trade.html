@@ -48,7 +48,7 @@
 						document.getElementById('cost').value = v;
 						document.getElementById('buycost').value = v;
 						document.getElementById('sellcost').value = v;
-						document.getElementById('buy_possible').value = parseInt(money/v);
+						document.getElementById('buy_possible').value = (money/v).toFixed(5);
 						document.getElementById('sell_possible').value = sell;
 						document.getElementById('money').value = money;
 					});
@@ -94,14 +94,18 @@
 				<div>
 					매수 가능: <input type="text" id="buy_possible">
 					buy price(KRW): <input type="text" id="buycost" size="20" disabled>
-					<button type="button" class="buy" onclick="location.href='index.html'">매수</button>
+					<form action = "" name = "selling" method="post">
+						<input type="submit" class="buy" value="매수"></input>
+					</form>
 				</div>
 			</div>
 			<div class="test" style="margin-bottom:20px;">
 				<div>
 					매도 가능: <input type="text" id="sell_possible">
 					sell price(KRW): <input type="text" id="sellcost" size="20" disabled>
-					<button type="submit" class="sell" onclick="location.href='index.html'">매도</button>
+					<form action = "" name = "selling" method="post">
+						<input type="submit" class="sell" value="매도"></input>
+					</form>
 				</div>
 			</div>
 		</div>
